@@ -92,7 +92,8 @@
                     <a href="{{ link.url }}"
                        rel="noopener noreferrer"
                        aria-label="{{ link.label }}"
-                       class="link-with-icon">
+                       class="link-with-icon"
+                       target="_blank">
                       {% if link.svg_data %}{{ link.svg_data | safe }}{% endif %}
                       {{ link.label }}
                     </a>
@@ -116,11 +117,14 @@
                 <section>
                   <h3>
                     {% if job.url %}
-                      {{ job.position }} at <a href="{{ job.url }}">{{ job.company }}</a>
+                      {{ job.position }} at <a href="{{ job.url }}" target="_blank">{{ job.company }}</a>
                     {% else %}
                       {{ job.position }} at {{ job.company }}
                     {% endif %}
                   </h3>
+                  {% if job.sector %}
+                    <p class = "section-label">Sector: {{ job.sector }}</p>
+                  {% endif %}
                   {% if job.start_date and job.end_date %}
                     <p class="section-label">{{ job.start_date }} - {{ job.end_date }}</p>
                   {% endif %}
@@ -142,11 +146,14 @@
                 <section>
                   <h3>
                     {% if project.url %}
-                      <a href="{{ project.url }}">{{ project.title }}</a>
+                      {{ project.title }}
                     {% else %}
                       {{ project.title }}
                     {% endif %}
                   </h3>
+                  {% if project.organization %}
+                    <p class = "section-label">Organization: {{ project.organization }}</p>
+                  {% endif %}
                   {% if project.summary %}<p>{{ project.summary }}</p>{% endif %}
                   {% if project.highlights %}
                     <ul>
@@ -197,6 +204,44 @@
             </section>
           {% endif %}
 
+          {% if school_project %}
+            <section>
+              <h2 class="section-heading">School Projects</h2>
+              {% for sch in school_project %}
+                <section>
+                  <h3>
+                    {% if sch.project_name %}{{ sch.project_name }}{% endif %}
+                  </h3>
+                  {% if sch.school %}
+                  <p class="section-label">School: {{ sch.school }}</p>
+                  {% endif %}
+                  {% if sch.start_date and sch.end_date %}
+                    <p class="section-label">{{ sch.start_date }} - {{ sch.end_date }}</p>
+                  {% endif %}
+                  {% if sch.summary %}<p>{{ sch.summary }}</p>{% endif %}
+                  {% if sch.highlights %}
+                    <ul>
+                      {% for highlight in sch.highlights %}<li>{{ highlight }}</li>{% endfor %}
+                    </ul>
+                  {% endif %}
+                  {% if sch.images %}
+                    <div class="gallery main-gallery">
+                      {% for img in sch.images %}
+                        <figure>
+                          <img width="600"
+                               height="338"
+                               src="{{ img.img_path }}"
+                               alt="{{ img.caption }}">
+                          <figcaption>{{ img.caption }}</figcaption>
+                        </figure>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </section>
+              {% endfor %}
+            </section>
+          {% endif %}
+
           {% if references %}
             <section>
               <h2 class="section-heading">References</h2>
@@ -208,6 +253,54 @@
                     <blockquote>
                       {{ ref.reference }}
                     </blockquote>
+                  {% endif %}
+                </section>
+              {% endfor %}
+            </section>
+          {% endif %}
+
+          {% if learning_recommendations %}
+            <section>
+              <h2 class="section-heading">Learning Recommendations</h2>
+              {% for lr in learning_recommendations %}
+                <section>
+                  {% if lr.name %}<h3>{{ lr.name }}</h3>{% endif %}
+                  {% if lr.relation %}<p class="section-label">{{ lr.relation }}</p>{% endif %}
+                  {% if lr.reference %}
+                    <blockquote>
+                      {{ lr.reference }}
+                    </blockquote>
+                  {% endif %}
+                  {% if lr.images %}
+                    <div class="gallery main-gallery">
+                      {% for img in lr.images %}
+                        <figure>
+                          <a href="{{ img.img_link }}" target="_blank">
+                            <img width="127.50"
+                                height="63.75"
+                                src="{{ img.img_path }}"
+                                alt="{{ img.caption }}">
+                          </a>
+                          <figcaption>{{ img.caption }}</figcaption>
+                        </figure>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                  {% if lr.thumbnails %}
+                    <div class="gallery main-gallery">
+                      {% for thumbnail in lr.thumbnails %}
+                        <figure>
+                          <a href="{{ thumbnail.yt_link }}" target="_blank">
+                            <img width="500"
+                                height="500"
+                                src="{{ thumbnail.img_path }}"
+                                alt="{{ thumbnail.caption }}">
+                          </a>
+                          <figcaption>{{ thumbnail.caption }}</figcaption>
+                          <span class="img-description">{{ thumbnail.description }}</span>
+                        </figure>
+                      {% endfor %}
+                    </div>
                   {% endif %}
                 </section>
               {% endfor %}
@@ -230,6 +323,7 @@
                     {% endif %}
                   </h3>
                   {% if edu.location %}<p class="section-label">{{ edu.location }}</p>{% endif %}
+                  {% if edu.start_end_dates %}<p class="section-label">{{ edu.start_end_dates }}</p>{% endif %}
                   {% if edu.degrees %}
                     <h4>Degrees</h4>
                     <ul>
@@ -247,6 +341,11 @@
                       {% if edu.gpa_major %}<span class="block">GPA in Major: {{ edu.gpa_major }}</span>{% endif %}
                       {% if edu.gpa_cumulative %}<span class="block">Cumulative GPA: {{ edu.gpa_cumulative }}</span>{% endif %}
                       {% if edu.graduation_date %}<span class="block">Graduation Date: {{ edu.graduation_date }}</span>{% endif %}
+                    </p>
+                  {% endif %}
+                  {% if edu.specialization %}
+                    <p>
+                      {% if edu.specialization %}<span class="block">Specialized in: {{ edu.specialization }}</span>{% endif %}
                     </p>
                   {% endif %}
                 </section>
@@ -301,8 +400,8 @@
                     <div class="gallery side-gallery">
                       {% for img in interest.images %}
                         <figure>
-                          <img width="600"
-                               height="338"
+                          <img width="202"
+                               height="114"
                                src="{{ img.img_path }}"
                                alt="{{ img.caption }}">
                           <figcaption>{{ img.caption }}</figcaption>
