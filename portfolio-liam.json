@@ -7,7 +7,7 @@
     "phone": "",
     "location": "Paris, France"
   },
-  "summary": "Hi there, this is my personal webpage here you see more things that do not fit in my CV. I have 5 years of experience as an Engineer working with vehicles, IoT and Data. I've worked for both private and public sectors.",
+  "summary": "Hi there, this is my personal webpage here you can know more details about my professional and academical projects. I have 5 years of experience as an Engineer working with vehicles, IoT and Data. I've worked for both private and public sectors.",
   "base_url": "127.0.0.1:5500",
   "social_links": [
     {
@@ -83,10 +83,10 @@
     {
       "project_name": "Data Science and Data Engineering projects",
       "school": "EPITA",
-      "summary": "These some of the projects that I've worked on during my MSc.",
+      "summary": "These are some of the projects that I've worked on during my MSc.",
       "highlights": [
-        "ULMFiT network for job offer classification. Wrote script to extract french job offers from France Travail, working on the NLP side to implement ULMFiT for job offer classification with scarce labels.",
-        "With the help of Pandas, Numpy, Sklearn and Seaborn  preprocessed, modeled, trained, tested, validated, predicted house prices with a linear regression model, finally industrialized the code.",
+        "Conducted in-depth analysis of France Travail data-related job offers for their classification; cleaned and prepared datasets for ML models. Built BiLSTM from scratch with PyTorch, and built Grounded LLM + RAG LangChain Chatbot to share insights.",
+        "Using Pandas, Numpy, Sklearn, and Seaborn.  Preprocessed, modeled, trained, tested, validated, predicted house prices with a linear regression model, finally industrialized the code in alignment with best practices.",
         "Social Network Clustering: Airflow deployment in docker containers, wrote data ingestion and prediction dags, and automated data quality checks with Great Expectations Core.",
         "Conducted data analysis on Mexico's air quality data from monitoring stations to show how particulate matter concentration changes each season, enriched dataset with Mexican government's data of monthly precipitation figures."
       ]
