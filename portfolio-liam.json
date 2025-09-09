@@ -7,7 +7,7 @@
     "phone": "",
     "location": "Paris, France"
   },
-  "summary": "Hi there, this is my personal webpage here you can know more details about my professional and academical projects. I have 5 years of experience as an Engineer working with vehicles, IoT and Data. I've worked for both private and public sectors.",
+  "summary": "Hi there, this is my personal webpage. Here you can learn more about my professional and academical projects. I have 5 years of experience as an Engineer working with vehicles, IoT and Data. I've worked for both private and public sectors.",
   "base_url": "127.0.0.1:5500",
   "social_links": [
     {
@@ -42,7 +42,7 @@
       "sector": "Private, B2B and B2C. Mexico",
       "position": "Project Engineer",
       "url": "https://vectro.com.mx/#content",
-      "start_date": "01/01/2010",
+      "start_date": "01/06/2019",
       "end_date": "01/05/2020",
       "summary": "Configured and tested GPS, RFID, Sigfox, and MDVR devices for different type of transportation vehicles and industries.",
       "highlights": [
